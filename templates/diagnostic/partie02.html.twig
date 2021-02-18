@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>
+		{% block title %}création d'un diagnostic
+		{% endblock %}
+	</title>
+	{% block stylesheets %}
+		{% form_theme formView 'bootstrap_4_layout.html.twig' %}
+
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/css/myStyle.css">
+
+		<link rel="stylesheet" href="/css/myStyle.css">
+
+		<link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	{% endblock %}
+
+	{# // <script src="{{ asset('js/vue.min.js') }}"></script> #}
+
+</head>
+<body class="backgroungpartie2">
+
+	{% include "shared/_navbar.html.twig" %}
+	<br><br>
+	<div class="container mt-5" style="background: white;">
+
+		{% include "shared/_partie.html.twig" with {
+      'num': '2',
+      'title': 'HABITATS DE NIDIFICATION ET HIBERNAGE',
+      'img': '/images/imgPartie4.png',
+			'paragraphe': '	Les abeilles indigènes nichent et hivernent dans de multiples endroits. Environ 70 % des espèces nichent dans le sol ; les autres installent leur nid dans diverses cavités : bois mort, branches et tiges de plantes. Les nids de bourdons se trouvent souvent sous des plantes ligneuses, des herbes hautes ou cachés dans la végétation. De nombreux insectes, dont certains papillons de jour et de nuit, coléoptères, syrphes et bourdons, hivernent sous la litière de feuilles, sous les mousses des forêts ou dans des sols meubles.',
+			'sousPararaphe': 'La diversité des habitats sur votre site augmente la probabilité de succès de nidification et d’hivernage.'
+    } 
+		 %}
+
+		{{ form_start(formView) }}
+
+		{{ form_errors(formView) }}
+
+		{{ form_row(formView.name) }}
+		{{ form_row(formView.delimitation) }}
+		{{ form_row(formView.proprietaire) }}
+		{{ form_row(formView.adresse) }}
+		{{ form_row(formView.mail) }}
+		{{ form_row(formView.etape) }}
+		{{ form_row(formView.score1) }}
+		{{ form_row(formView.score2) }}
+		{{ form_row(formView.score3) }}
+		{{ form_row(formView.score4) }}
+
+		<div class="row justify-content-md-center mt-5 ">
+
+			<div class="col col-md-4 col-sm-4 mb-5">
+				<a class="btn btnRetour text-capitalize" href="{{ path('diagnostic_question1E', {'id': diagnostic.id } ) }}">
+					<h3>
+						<i class="fas fa-angle-left"></i>
+						Retour
+					</h3>
+
+				</a>
+			</div>
+
+			<div class="col col-md-4 col-sm-4 text-right mb-5">
+				<button type="submit" class="btn btnSuivant  ml-3 text-capitalize">
+
+					<h3>
+						Suivant
+						<i class="fas fa-angle-right"></i>
+					</h3>
+				</button>
+			</div>
+
+		</div>
+
+		{{ form_end(formView) }}
+	</div>
+
+</body></html>

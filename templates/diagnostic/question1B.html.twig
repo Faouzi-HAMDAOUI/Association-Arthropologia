@@ -1,0 +1,190 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formView 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Lancement d'un diagnostic
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="row">
+		<div class="col-md-7 col-sm-12">
+			{% include "shared/_progress.html.twig" with {
+      'width1': 16,
+      'width2': 0,
+      'width3': 0,
+			'width4': 0
+    }  %}
+
+			{% include "shared/_guidMobile.html.twig" with {
+				'sousParagraphe1': 'Se référer à la liste des espèces de végétaux en fin de document pour vous donner une base d’espèces indigènes. Pour vérifier spécifiquement si une espèce est indigène consultez : l’INPN, Tela Botanica, le Pôle Flore Habitats Fonge (national, ici Auvergne-Rhône- Alpes), SIFLORE ou également tout ouvrage horticole indiquant l’origine de la plante',
+      'sousParagraphe2': 'lien pdf',
+			'sousParagraphe3': 'Ces trois sites ont des pourcentages élevés de couverture végétale fleurie. Cependant, ils diffèrent dans la proportion de couverture de fleurs indigènes :'
+			} %}
+			{% include "shared/_question.html.twig" with {
+      'partie': '1',
+      'sousPartie': 'b',
+      'titre': 'Pourcentage  de végétation fleurie indigène sur le site',
+			'numQuestion': '1',
+			'nbreQuestions': '1',
+			'question': 'Indiquez le pourcentage de recouvrement par la végétation fleurie indigène',
+			'infosQuestion': '',
+    } 
+		 %}
+
+
+			<div class="text-center mt-5">
+
+				<button onclick="less()" class="btn mt-5">
+					<h1>
+						<i class="fas fa-angle-left"></i>
+					</h1>
+				</button>
+				<button class="btn btnDemo ml-3 mr-3 mt-5">
+					<h1>
+						<span id="demo"></span>
+						%</h1>
+				</button>
+				<button onclick="more()" class="btn mt-5">
+					<h1>
+						<i class="fas fa-angle-right"></i>
+					</h1>
+				</button>
+				<br><br>
+
+
+			</div>
+			{{ form_start(formView) }}
+
+			{{ form_errors(formView) }}
+
+			<fieldset class="form-group mt-5">
+				{{ form_row(formScore.myRange, {
+					'attr': {
+						'class': 'form-control-range slider'
+					}
+				}) }}
+				<br><br>
+				<h2 class="text-right">
+					<cite title="Source Title">10% = 1pt</cite>
+				</h2>
+			</fieldset>
+
+
+			{{ form_row(formView.name) }}
+			{{ form_row(formView.delimitation) }}
+			{{ form_row(formView.proprietaire) }}
+			{{ form_row(formView.adresse) }}
+			{{ form_row(formView.objectif) }}
+			{{ form_row(formView.mail) }}
+			{{ form_row(formView.etape) }}
+			{{ form_row(formView.score) }}
+			{{ form_row(formView.score1) }}
+			{{ form_row(formView.score2) }}
+			{{ form_row(formView.score3) }}
+			{{ form_row(formView.score4) }}
+			<br>
+			<div class="row mt-4">
+				<div class="col col-md-5 col-sm-4">
+					<a class="btn btnRetour text-capitalize" href="{{ path('diagnostic_question1A', {'id': diagnostic.id } ) }}">
+						<h3>
+							<i class="fas fa-angle-left"></i>
+							Retour
+						</h3>
+
+					</a>
+				</div>
+				<div class="col col-md-7 col-sm-4 text-right">
+					<button type="submit" class="btn btnSuivant ml-3 text-capitalize">
+
+						<h3>
+							Suivant
+							<i class="fas fa-angle-right"></i>
+						</h3>
+					</button>
+				</div>
+
+
+			</div>
+
+			{{ form_end(formView) }}
+
+		</div>
+
+
+		{% include "shared/_guide.html.twig" with {
+	'height': '52',
+      'sousParagraphe1': 'Se référer à la liste des espèces de végétaux en fin de document pour vous donner une base d’espèces indigènes. Pour vérifier spécifiquement si une espèce est indigène consultez : l’INPN, Tela Botanica, le Pôle Flore Habitats Fonge (national, ici Auvergne-Rhône- Alpes), SIFLORE ou également tout ouvrage horticole indiquant l’origine de la plante',
+      'sousParagraphe2': '',
+			'sousParagraphe3': 'Ces trois sites ont des pourcentages élevés de couverture végétale fleurie. Cependant, ils diffèrent dans la proportion de couverture de fleurs indigènes :'
+    }  %}
+
+		<script>
+			var slider = document.getElementById("score_myRange");
+var output = document.getElementById("demo");
+
+var score = document.getElementById("diagnostic2_score");
+output.innerHTML = slider.value;
+score.value = slider.value / 10;
+
+function more() {
+slider.value += 10;
+output.innerHTML = slider.value
+slider.oninput();
+}
+
+function less() {
+slider.value -= 10;
+output.innerHTML = slider.value
+slider.oninput();
+}
+
+slider.oninput = function () {
+output.innerHTML = this.value;
+if (this.value == 0) {
+score.value = 0;
+} else {
+if (this.value == 10) {
+score.value = 1;
+} else {
+if (this.value == 20) {
+score.value = 2;
+} else {
+if (this.value == 30) {
+score.value = 3;
+} else {
+if (this.value == 40) {
+score.value = 4;
+} else {
+if (this.value == 50) {
+score.value = 5;
+} else {
+if (this.value == 60) {
+score.value = 6;
+} else {
+if (this.value == 70) {
+score.value = 7;
+} else {
+if (this.value == 80) {
+score.value = 8;
+} else {
+if (this.value == 90) {
+score.value = 9;
+} else {
+score.value = 10;
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+
+}
+		</script>
+
+	{% endblock %}

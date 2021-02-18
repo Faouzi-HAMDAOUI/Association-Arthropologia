@@ -1,0 +1,149 @@
+{% extends "base1.html.twig" %}
+
+{% form_theme formView 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Lancement d'un diagnostic
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="row">
+		<div class="col-md-7 col-sm-12">
+			{% include "shared/_progress.html.twig" with {
+      'width1': 100,
+      'width2': 100,
+      'width3': 0,
+			'width4': 0
+    }  %}
+
+			{% include "shared/_guidMobile.html.twig" with {
+
+'sousParagraphe1': 'La majorité des insectes qui nichent dans des cavités, s’installent dans des galeries ou des cavités préexistantes dans des arbres morts restés sur pied (fig. A), des buches (fig. B), des broussailles, des végétaux à tiges creuses (fig. C), dans les tiges à moelle tendre (ex. : sureau, framboisier, ronce, rosier… (fig. D).',
+      'sousParagraphe2': 'Les bourdons nichent également sous les graminées formant des touffes ou d’autres herbes hautes. Des murs en pierre sèche, non scellés (fig. E), des piquets de clôture non traités ainsi que diverses structures peuvent attirer différents pollinisateurs.',
+			'sousParagraphe3': ' '
+
+} 
+%}
+			{% include "shared/_question.html.twig" with {
+      'partie': '2',
+      'sousPartie': 'b',
+      'titre': 'Habitats pour les insectes pollinisateurs qui cherchent un abri dans le bois, les tiges et autres cavités',
+			'numQuestion': '6',
+			'nbreQuestions': '6',
+			'question': 'Evaluez la présence d’arbres offrant des anfractuosités : sénescents, de
+												gros diamètre, avec une écorce bien développée',
+			'infosQuestion': '',
+    } 
+		 %}
+
+			<div class="list-group">
+
+				<button id="rep1" onclick="clickRep1()" class="list-group-item list-group-item-action mb-2" aria-current="true">
+					<h3 class="mb-1 mt-4">Absents</h3>
+					<h4 class="text-right">0 pt</h4>
+				</button>
+
+				<button id="rep2" onclick="clickRep2()" class="list-group-item list-group-item-action mb-2" aria-current="true">
+					<h3 class="mb-1 mt-4">Peu nombreux</h3>
+					<h4 class="text-right">5 pts</h4>
+				</button>
+
+				<button id="rep3" onclick="clickRep3()" class="list-group-item list-group-item-action mb-2" aria-current="true">
+					<h3 class="mb-1 mt-4">Abondants</h3>
+					<h4 class="text-right">10 pts</h4>
+				</button>
+
+
+			</div>
+
+			{{ form_start(formView) }}
+
+			{{ form_errors(formView) }}
+
+			{{ form_row(formView.name) }}
+			{{ form_row(formView.delimitation) }}
+			{{ form_row(formView.proprietaire) }}
+			{{ form_row(formView.adresse) }}
+			{{ form_row(formView.objectif) }}
+			{{ form_row(formView.mail) }}
+			{{ form_row(formView.etape) }}
+			{{ form_row(formView.score) }}
+			{{ form_row(formView.score1) }}
+			{{ form_row(formView.score2) }}
+			{{ form_row(formView.score3) }}
+			{{ form_row(formView.score4) }}
+			<br>
+			<div class="row mt-4">
+				<div class="col col-md-5 col-sm-4 ">
+					<a class="btn btnRetour text-capitalize" href="{{ path('diagnostic_question2B5', {'id': diagnostic.id } ) }}">
+						<h3>
+							<i class="fas fa-angle-left"></i>
+							Retour
+						</h3>
+
+					</a>
+				</div>
+				<div class="col col-md-7 col-sm-4 text-right">
+					<button type="submit" class="btn btnSuivant  ml-3 text-capitalize">
+
+						<h3>
+							Suivant
+							<i class="fas fa-angle-right"></i>
+						</h3>
+					</button>
+				</div>
+
+
+			</div>
+
+			{{ form_end(formView) }}
+
+		</div>
+
+		{% include "shared/_guide.html.twig" with {
+	'height': '55',
+      'sousParagraphe1': 'La majorité des insectes qui nichent dans des cavités, s’installent dans des galeries ou des cavités préexistantes dans des arbres morts restés sur pied (fig. A), des buches (fig. B), des broussailles, des végétaux à tiges creuses (fig. C), dans les tiges à moelle tendre (ex. : sureau, framboisier, ronce, rosier… (fig. D).',
+      'sousParagraphe2': 'Les bourdons nichent également sous les graminées formant des touffes ou d’autres herbes hautes. Des murs en pierre sèche, non scellés (fig. E), des piquets de clôture non traités ainsi que diverses structures peuvent attirer différents pollinisateurs.',
+			'sousParagraphe3': ' '
+    }  %}
+
+		<script>
+			var rep1 = document.getElementById("rep1");
+var rep2 = document.getElementById("rep2");
+var rep3 = document.getElementById("rep3");
+var score = document.getElementById("diagnostic2_score");
+score.value = 0;
+
+function clickRep1() {
+score.value = 0;
+rep1.style.background = '#7226AE';
+rep1.style.color = 'white';
+rep2.style.background = 'white';
+rep3.style.background = 'white';
+rep3.style.color = 'black';
+rep2.style.color = 'black';
+}
+
+function clickRep2() {
+score.value = 5;
+rep2.style.background = '#7226AE';
+rep2.style.color = 'white';
+rep1.style.background = 'white';
+rep3.style.background = 'white';
+rep1.style.color = 'black';
+rep3.style.color = 'black';
+}
+
+function clickRep3() {
+score.value = 10;
+rep3.style.background = '#7226AE';
+rep3.style.color = 'white';
+rep2.style.background = 'white';
+rep1.style.background = 'white';
+rep1.style.color = 'black';
+rep2.style.color = 'black';
+}
+		</script>
+
+	{% endblock %}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>
+		{% block title %}Arthropologia / diagnostic
+		{% endblock %}
+	</title>
+	{% block stylesheets %}
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/css/myStyle.css">
+		<link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	{% endblock %}
+
+	{# // <script src="{{ asset('js/vue.min.js') }}"></script> #}
+
+</head>
+<body class="backgroungHome">
+	{% include "shared/_navbar.html.twig" %}
+	<div class="container">
+
+
+		<div class="row justify-content-md-center ">
+
+			<div class="col col-md-8 col-sm-10 mt-5">
+				<h2 class="numPartie" style="color: white;">bienvenue sur le</h2>
+				<h1 class="text-center" style="color: white;">Diag'pollinisateurs</h1>
+				<h1 class="text-center" style="color: white;">espaces verts</h1>
+			</div>
+
+		</div>
+
+		<div class="row justify-content-md-center ">
+
+			<div class="col col-md-4 col-sm-10 mt-2 mb-1">
+				<a href="{{ path('diagnostic_create') }}" class="btn buttonDiagnostique text-capitalize ml-5 mb-3" style="background: #FFDD00;">
+
+					<h4>
+						Commencer le diagnostic</h4>
+				</a>
+			</div>
+
+		</div>
+
+		<div class="row justify-content-md-center ">
+			<div class="col col-md-9 col-sm-10 mt-5">
+
+				<div class="card  mb-3">
+					<div class="card-header text-white bg-dark">
+						<h3 class="titleInfos">Objectif du diagnostic
+						</h3>
+					</div>
+					<div class="card-body">
+
+						<p class="card-text paragrapheInfos ml-5 mr-5">
+							L’aménagement paysager en faveur des pollinisateurs est un moyen simple
+																																																																																																																																																																																	et efficace pour les urbanistes, gestionnaires d’espaces verts, de voiries
+																																																																																																																																																																																																																																							et paysagistes d’agir pour la biodiversité locale. Les espaces verts, places publiques,
+																																																																																																																																																																																																																																							carrefours giratoires, terres pleins, accotements et les parcs ont tous un potentiel
+																																																																																																																																																																																																																																							pour répondre aux besoins élémentaires des pollinisateurs, comme la fourniture
+																																																																																																																																																																																																																																							de ressources alimentaires, d’espaces de refuge, de nidification et d’hivernage.
+						</p>
+						<p class="card-text paragrapheInfos ml-5 mr-5">
+							Le but de cet outil est d’<span class="paragrapheInfosBold">évaluer sur un site donné la qualité de l’habitat pour
+																																																																																																																																																																																																																																																										les pollinisateurs et d’identifier les champs de progression.</span>
+							Ce processus vous aidera
+																																																																																																																																																																																																																																							également à hiérarchiser les prochaines étapes essentielles à mettre en œuvre
+																																																																																																																																																																																																																																							pour favoriser les pollinisateurs sur votre site.
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		{# deuxiéme contenu #}
+
+		<div class="row justify-content-md-center ">
+			<div class="col col-md-9 col-sm-10 mt-5">
+
+				<div class="card  mb-3">
+					<div class="card-header text-white bg-dark">
+						<h3 class="titleInfos">Prérequis pour utiliser cet outil
+						</h3>
+					</div>
+					<div class="card-body">
+
+						<p class="card-text paragrapheInfos ml-5 mr-5">
+							Pour utiliser cet outil de diagnostic, il est indispensable de savoir distinguer
+																																																																																																																							une
+							<span class="paragrapheInfosBold">plante indigène</span>
+							(locale) d’une
+							<span class="paragrapheInfosBold">plante exotique</span>
+							et/ou horticole.
+																																																																																																																							De nombreux critères étant basés sur l’origine des végétaux, une connaissance
+																																																																																																																							approximative biaiserait fortement le résultat, diminuerait la pertinence et
+																																																																																																																							perdrait de son objectif pédagogique.
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		{# troisiéme contenu #}
+
+		<div class="row justify-content-md-center ">
+			<div class="col col-md-9 col-sm-10 mt-5">
+
+				<div class="card  mb-3">
+					<div class="card-header text-white bg-dark">
+						<h3 class="titleInfos">Comment évaluer
+																																																																																																																							votre site ?
+						</h3>
+					</div>
+					<div class="card-body">
+
+
+						<p class="card-text paragrapheInfos ml-5 mr-5">
+							<span class="paragrapheInfosBold">Conseils et instructions</span>
+						</p>
+						<p class="card-text paragrapheInfos ml-5 mr-5">Avant de procéder à une évaluation, il est conseillé de visualiser ou
+																																																																																																																							d’imprimer une photo aérienne du site pour répondre aux questions,
+																																																																																																																							notamment sur les pourcentages de recouvrements.
+						</p>
+
+						<p class="ml-5">
+							<span class="paragrapheInfosBold" style="text-decoration: underline;">www.geoportail.fr
+							</span>
+						</p>
+
+						<p class="card-text paragrapheInfos ml-5 mr-5">Rassemblez toutes les informations que vous possédez sur votre
+																																																																																																																							espace comme: la surface végétalisée, les espèces recensées, etc.</p>
+
+						<p class="card-text paragrapheInfos ml-5 mr-5">L’évaluation doit idéalement être effectuée deux fois, une fois pendant
+																																																																																																																							le processus d’évaluation de votre site (avant de prendre les mesures
+																																																																																																																							recommandées) et 3 ans après (le temps que les changements ont été
+																																																																																																																							mis en œuvre et que la végétation a eu le temps de se développer).
+						</p>
+
+						<p class="card-text paragrapheInfos ml-5 mr-5">Utilisez la liste des actions pour promouvoir les pollinisateurs (document PDF à télécharger à la fin du diagnostic ou ci-dessous) afin de vous aider à sélectionner les prochaines étapes à mettre
+																																																																																																																							en œuvre sur votre site.
+						</p>
+
+						<p class="card-text paragrapheInfos ml-5 mr-5">Enfin, il peut être également utile de travailler sur un plan du site
+																																																																																																																							à aménager pour programmer les changements à venir : dessiner
+																																																																																																																							les zones et différencier les modes de gestion.</p>
+
+						<p class="card-text paragrapheInfos ml-5">
+							<span class="paragrapheInfosBold">Système d’évaluation</span>
+						</p>
+
+						<div class="row ml-5 mr-5">
+							<div class="col col-md-1 col-sm-8">
+								<button type="button" class="btn btn-circle btn-lg mt-3">1</i>
+							</button>
+						</div>
+						<div class="col col-md-11 col-sm-12">
+							<p class="card-text paragrapheInfos ">
+								Répondez aux questions qui vous sont posées et qui permettent d’attribuer un certain nombre de points à votre site. Il y a 4 parties différentes : Zones d’alimentation, Habitats de nidification, Utilisation de pesticide et Informations et sensibilisations.
+							</p>
+						</div>
+					</div>
+
+					<div class="row ml-5 mr-5 mt-3">
+						<div class="col col-md-1 col-sm-8">
+							<button type="button" class="btn btn-circle btn-lg mt-3">2</i>
+						</button>
+					</div>
+					<div class="col col-md-11 col-sm-12">
+						<p class="card-text paragrapheInfos ">
+							L’évaluation doit idéalement être effectuée deux fois :
+																																																																																																														- une fois pour un état initial, du printemps à l’automne
+																																																																																																														- puis 3 ans après (le temps que les changements identifiés soient mis en œuvre et que la végétation ait le temps de se développer).
+						</p>
+					</div>
+				</div>
+
+				<div class="row ml-5 mr-5 mt-3">
+					<div class="col col-md-1 col-sm-8">
+						<button type="button" class="btn btn-circle btn-lg mt-3">3</i>
+					</button>
+				</div>
+				<div class="col col-md-11 col-sm-12">
+					<p class="card-text paragrapheInfos ">
+						A la fin du diagnostic, vous obtiendrez vos scores pour chaque partie ainsi qu’une note globale. Vous pourrez également télécharger un document PDF contenant une liste d’actions à mener pour préserver les pollinisateurs en espaces urbanisés.
+
+					</p>
+				</div>
+			</div>
+
+			<div class="row ml-5 mr-5 mt-3">
+				<div class="col col-md-1 col-sm-8">
+					<button type="button" class="btn btn-circle btn-lg mt-3">4</i>
+				</button>
+			</div>
+			<div class="col col-md-11 col-sm-12">
+				<p class="card-text paragrapheInfos ">
+					Les scores de chaque PARTIE doivent être utilisés pour identifier
+																																																																																les problèmes de ressources et hiérarchiser les prochaines étapes.
+																																																																																Par exemple, si le score de « l’habitat de nidification » est faible, les
+																																																																																actions qui augmentent ce score doivent être priorisées. Idéalement,
+																																																																																les gestionnaires de chaque site devraient essayer d’obtenir un
+																																																																																score global d’au moins 144 points, avec des améliorations continues
+																																																																																du site (et du score) chaque année.
+				</p>
+			</div>
+		</div>
+
+
+		<div class="row ml-5 mr-5 mb-3 mt-3">
+			<div class="col col-md-1 col-sm-8">
+				<button type="button" class="btn btn-circle btn-lg mt-3">
+					<i class="fas fa-info"></i>
+				</button>
+			</div>
+			<div class="col col-md-11 col-sm-12">
+				<p class="card-text paragrapheInfos ">
+					Sur chaque page de question, retrouvez des conseils et des photos pour vous aider dans l’évaluation et la notation de votre site.
+																																																																			Il vous suffit de cliquer sur l’icône “Informations”.
+				</p>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	{# quatreéme contenu #}
+
+	<div id="text" class="row justify-content-md-center ">
+		<div class="col col-md-9 col-sm-10 mt-5">
+			<div class="card  mb-3">
+
+				<div class="card-header text-white bg-dark">
+					<h3 class="titleInfos">Actions rapides pour l’amélioration du site
+					</h3>
+				</div>
+
+				<div class="card-body">
+
+					<p class="card-text paragrapheInfos">
+						Si vous n’êtes pas intéressé par la notation de votre site, mais que vous
+																																		 souhaitez tout de même améliorer votre habitat pour les pollinisateurs,
+																																		utilisez la liste des actions pour promouvoir les pollinisateurs.
+					</p>
+					<p class="card-text paragrapheInfos">
+						Nous vous conseillons de télécharger ce PDF pour vous aider dans la notation de votre site, puisqu’il contient également des listes de plantes auxquelles vous pourrez vous référer.
+					</p>
+				</div>
+				<div
+					class="text-center">
+					{# <button type="button" onclick="window.print()" style="background: #6AAF3C; width: 230px" class="btn btn-success text-capitalize ml-5 mr-5 mb-3">Télécharger le PDF des actions</button> #}
+					<a href="https://www.arthropologia.org/user/pages/02.association/06.ressources/09.diag-pollinisateurs-espaces-verts/Diag_Pollinisateurs_EV.pdf" target="_blank" type="button" style="background: #6AAF3C;" class=" btn btnSuivant text-capitalize ml-5 mr-5 mb-3">Télécharger le PDF</a>
+				</div>
+			</div>
+		</div>
+</div>
+
+{# button commencer diagnostic #}
+		<div class="row justify-content-md-center ">
+			<div class="col col-md-12 col-sm-10 mt-2 mb-1">
+				<a href="{{ path('diagnostic_create') }}" class="btn buttonDiagnostique text-capitalize ml-5 mb-3" style="background: #FFDD00;">
+
+					<h4>
+						Commencer le diagnostic</h4>
+				</a>
+			</div>
+		</div>
+
+	</div>
+
+</body></html>

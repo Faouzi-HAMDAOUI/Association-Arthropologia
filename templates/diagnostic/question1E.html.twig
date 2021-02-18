@@ -1,0 +1,174 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formView 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Lancement d'un diagnostic
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="row">
+		<div class="col-md-7 col-sm-12 ">
+			{% include "shared/_progress.html.twig" with {
+      'width1': 100,
+      'width2': 0,
+      'width3': 0,
+			'width4': 0
+    }  %}
+
+			{% include "shared/_guidMobile.html.twig" with {
+
+'sousParagraphe1': 'Pas d’indications supplémentaires.',
+'sousParagraphe2': '',
+'sousParagraphe3': ''
+
+} 
+%}
+
+			{% include "shared/_question.html.twig" with {
+      'partie': '1',
+      'sousPartie': 'E',
+      'titre': 'Éclairage nocturne sur le site',
+			'numQuestion': '1',
+			'nbreQuestions': '1',
+			'question': 'Précisez l’éclairage nocturne du site',
+			'infosQuestion': 'L’éclairage gène les pollinisateurs nocturnes qui vont alors fuir les zones éclairées, restreignant ainsi leur aire de nourrissage.',
+    } 
+		 %}
+
+			<div class="list-group">
+
+				<button id="rep1" onclick="clickRep1()" class="list-group-item list-group-item-action mb-2" aria-current="true">
+					<h3 class="mb-1 mt-4">Éclairage nocturne permanent sur tout le site</h3>
+					<h4 class="text-right">0 pt</h4>
+				</button>
+
+				<button id="rep2" onclick="clickRep2()" class="list-group-item list-group-item-action mb-2" aria-current="true">
+					<h3 class="mb-1 mt-4">Éclairage sur seulement la moitié du site</h3>
+					<h4 class="text-right">5 pts</h4>
+				</button>
+
+				<button id="rep3" onclick="clickRep3()" class="list-group-item list-group-item-action mb-2" aria-current="true">
+					<h3 class=" mt-2">Éclairage programmé</h3>
+					<h5 class="">(à détecteur / éteint une partie de la nuit)</h5>
+					<h4 class="text-right">5 pts</h4>
+				</button>
+
+				<button id="rep4" onclick="clickRep4()" class="list-group-item list-group-item-action mb-2" aria-current="true">
+					<h3 class="mb-1 mt-4">Pas d’éclairage nocturne</h3>
+					<h4 class="text-right">10 pts</h4>
+				</button>
+
+			</div>
+
+			{{ form_start(formView) }}
+
+			{{ form_errors(formView) }}
+
+			{{ form_row(formView.name) }}
+			{{ form_row(formView.delimitation) }}
+			{{ form_row(formView.proprietaire) }}
+			{{ form_row(formView.adresse) }}
+			{{ form_row(formView.objectif) }}
+			{{ form_row(formView.mail) }}
+			{{ form_row(formView.etape) }}
+			{{ form_row(formView.score) }}
+			{{ form_row(formView.score1) }}
+			{{ form_row(formView.score2) }}
+			{{ form_row(formView.score3) }}
+			{{ form_row(formView.score4) }}
+			<br>
+			<div class="row mt-4">
+				<div class="col col-md-5 col-sm-4 ">
+					<a class="btn btnRetour text-capitalize" href="{{ path('diagnostic_question1D3', {'id': diagnostic.id } ) }}">
+						<h3>
+							<i class="fas fa-angle-left"></i>
+							Retour
+						</h3>
+
+					</a>
+				</div>
+				<div class="col col-md-7 col-sm-4 text-right">
+					<button type="submit" class="btn btnSuivant ml-3 text-capitalize">
+
+						<h3>
+							Suivant
+							<i class="fas fa-angle-right"></i>
+						</h3>
+					</button>
+				</div>
+
+
+			</div>
+
+			{{ form_end(formView) }}
+
+		</div>
+
+
+		{% include "shared/_guide.html.twig" with {
+	'height': '63',
+      'sousParagraphe1': 'Pas d’indications supplémentaires.',
+      'sousParagraphe2': '',
+			'sousParagraphe3': ''
+    }  %}
+
+		<script>
+			var rep1 = document.getElementById("rep1");
+var rep2 = document.getElementById("rep2");
+var rep3 = document.getElementById("rep3");
+var rep4 = document.getElementById("rep4");
+var score = document.getElementById("diagnostic2_score");
+score.value = 0;
+
+function clickRep1() {
+score.value = 0;
+rep1.style.background = '#168944';
+rep1.style.color = 'white';
+rep2.style.background = 'white';
+rep3.style.background = 'white';
+rep3.style.color = 'black';
+rep2.style.color = 'black';
+rep4.style.color = 'black';
+rep4.style.background = 'white';
+}
+
+function clickRep2() {
+score.value = 5;
+rep2.style.background = '#168944';
+rep2.style.color = 'white';
+rep1.style.background = 'white';
+rep3.style.background = 'white';
+rep1.style.color = 'black';
+rep3.style.color = 'black';
+rep4.style.color = 'black';
+rep4.style.background = 'white';
+}
+
+function clickRep3() {
+score.value = 5;
+rep3.style.background = '#168944';
+rep3.style.color = 'white';
+rep2.style.background = 'white';
+rep1.style.background = 'white';
+rep1.style.color = 'black';
+rep2.style.color = 'black';
+rep4.style.color = 'black';
+rep4.style.background = 'white';
+}
+
+function clickRep4() {
+score.value = 10;
+rep4.style.background = '#168944';
+rep4.style.color = 'white';
+rep2.style.background = 'white';
+rep1.style.background = 'white';
+rep1.style.color = 'black';
+rep2.style.color = 'black';
+rep3.style.color = 'black';
+rep3.style.background = 'white';
+}
+		</script>
+
+	{% endblock %}

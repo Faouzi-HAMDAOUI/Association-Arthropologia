@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>
+		{% block title %}création d'un diagnostic
+		{% endblock %}
+	</title>
+	{% block stylesheets %}
+		{% form_theme formView 'bootstrap_4_layout.html.twig' %}
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/css/myStyle.css">
+
+		<link rel="stylesheet" href="/css/myStyle.css">
+
+		<link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+	{% endblock %}
+
+	{# // <script src="{{ asset('js/vue.min.js') }}"></script> #}
+
+</head>
+<body class="backgroungpartie1">
+
+	{% include "shared/_navbar.html.twig" %}
+	<br><br>
+	<div class="container mt-5" style="background: white;">
+
+		{% include "shared/_partie.html.twig" with {
+      'num': '1',
+      'title': 'Zones d’alimentation',
+      'img': '/images/imgPartie4.png',
+			'paragraphe': '	Les pollinisateurs de par leur diversité sont présents une grande partie de l’année. Ils ont donc besoin d’une diversité et d’une abondance de fleurs à différentes périodes.',
+			'sousPararaphe': 'Les plantes indigènes sont les mieux adaptées à une large palette d’insectes et sont en cela essentielles pour le maintien des pollinisateurs.'
+    } 
+		 %}
+
+		{{ form_start(formView) }}
+
+		{{ form_errors(formView) }}
+
+		{{ form_row(formView.name) }}
+		{{ form_row(formView.delimitation) }}
+		{{ form_row(formView.proprietaire) }}
+		{{ form_row(formView.adresse) }}
+		{{ form_row(formView.objectif) }}
+		{{ form_row(formView.mail) }}
+		{{ form_row(formView.etape) }}
+		{{ form_row(formView.score1) }}
+		{{ form_row(formView.score2) }}
+		{{ form_row(formView.score3) }}
+		{{ form_row(formView.score4) }}
+
+		<div class="row justify-content-md-center mt-5 ">
+
+			<div class="col col-md-4 col-sm-4 mb-5">
+				<a class="btn btnRetour text-capitalize" href="{{ path('diagnostic_create') }}">
+					<h3>
+						<i class="fas fa-angle-left"></i>
+						Retour
+					</h3>
+
+				</a>
+			</div>
+
+			<div class="col col-md-4 col-sm-4 text-right mb-5">
+				<button type="submit" class="btn btnSuivant ml-3 text-capitalize">
+
+					<h3>
+						Suivant
+						<i class="fas fa-angle-right"></i>
+					</h3>
+				</button>
+			</div>
+
+		</div>
+
+		{{ form_end(formView) }}
+	</div>
+
+</body></html>

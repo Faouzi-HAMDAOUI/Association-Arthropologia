@@ -1,0 +1,251 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formView 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Lancement d'un diagnostic
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="row">
+		<div class="col-md-7 col-sm-12">
+			{% include "shared/_progress.html.twig" with {
+      'width1': 8,
+      'width2': 0,
+      'width3': 0,
+			'width4': 0
+    }  %}
+			{# --------------------------------guide mobile -------------------------------------------------- #}
+
+			<div class="row" id="guidMobile">
+				<div
+					class="col-11 col-md-11 col-sm-11 ">
+
+
+					<!-- Button trigger modal -->
+
+					<div class="text-right">
+						<button data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" class="btn btn-circle btn-lg">
+							<i class="fas fa-info"></i>
+						</button>
+					</div>
+
+
+					<!-- Modal -->
+					<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-scrollable">
+							<div class="modal-content">
+								<div class="modal-header">
+									<p class="titleGuide">
+										<button type="button" class="btn btn-circle btn-lg mr-2">
+											<i class="fas fa-info"></i>
+										</button>Guide de réponse</p>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+										<i class="fas fa-window-close"></i>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="card-body">
+										<h5 class="card-title">Special title treatment</h5>
+										<h4>Ce pourcentage exclut les bâtiments, mais comprend les toitures végétalisées</h4>
+										<p>Cela inclut les fleurs sauvages indigènes, les fleurs ornementales visitées, les arbustes à fleurs ou les arbres à feuilles caduques. N'inclut pas les zones de pelouse tondue ni les espèces envahissantes ou nuisibles (voir https://npn.mnhn.fr/espece/listeEspeces/statut/metrolpole/I pour la liste des espèces introduites envahissantes).</p>
+										<br>
+										<p>Remarque: comptez toutes les plantes qui fournissent des fleurs, qu'elles soient ou non actuellement en fleurs</p>
+									</div>
+									<img width="405px" src="/images/1a.PNG" alt="1a.PNG">
+									<img width="405px" src="/images/1a.PNG" alt="1a.PNG">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+
+			{# ---------------------------------------------fin de guide mobile------------------------------- #}
+
+			{% include "shared/_question.html.twig" with {
+      'partie': '1',
+      'sousPartie': 'a',
+      'titre': 'Pourcentage du site composé de végétation fleurie',
+			'numQuestion': '1',
+			'nbreQuestions': '1',
+			'question': 'Indiquez le pourcentage de recouvrement par la végétation fleurie',
+			'infosQuestion': '',
+    } 
+		 %}
+			<div class="text-center mt-5">
+
+				<button onclick="less()" class="btn  mt-5">
+					<h1>
+						<i class="fas fa-angle-left"></i>
+					</h1>
+				</button>
+				<button class="btn btnDemo ml-3 mr-3 mt-5">
+					<h1>
+						<span id="demo"></span>
+						%</h1>
+				</button>
+				<button onclick="more();" class="btn mt-5">
+					<h1>
+						<i class="fas fa-angle-right"></i>
+					</h1>
+				</button>
+				<br><br>
+
+
+			</div>
+			{{ form_start(formView) }}
+
+			{{ form_errors(formView) }}
+
+			<fieldset class="form-group mt-5">
+				{{ form_row(formScore.myRange, {
+					'attr': {
+						'class': 'form-control-range slider'
+					}
+				}) }}
+				<br><br>
+				<h2 class="text-right">
+					<cite title="Source Title">10% = 1pt</cite>
+				</h2>
+			</fieldset>
+
+
+			{{ form_row(formView.name) }}
+			{{ form_row(formView.delimitation) }}
+			{{ form_row(formView.proprietaire) }}
+			{{ form_row(formView.adresse) }}
+			{{ form_row(formView.objectif) }}
+			{{ form_row(formView.mail) }}
+			{{ form_row(formView.etape) }}
+			{{ form_row(formView.score) }}
+			{{ form_row(formView.score1) }}
+			{{ form_row(formView.score2) }}
+			{{ form_row(formView.score3) }}
+			{{ form_row(formView.score4) }}
+
+			<div class="row mt-4">
+				<div class="col col-md-5 col-sm-4">
+					<a class="btn btnRetour text-capitalize" href="{{ path('diagnostic_partie01', {'id': diagnostic.id } ) }}">
+						<h3>
+							<i class="fas fa-angle-left"></i>
+							Retour
+						</h3>
+
+					</a>
+				</div>
+				<div class="col col-md-7 col-sm-4 text-right">
+					<button type="submit" class="btn btnSuivant ml-3 text-capitalize">
+
+						<h3>
+							Suivant
+							<i class="fas fa-angle-right"></i>
+						</h3>
+					</button>
+				</div>
+
+
+			</div>
+
+			{{ form_end(formView) }}
+
+		</div>
+
+		<div class="col-md-5 col-sm-8 mt-2" id="guid">
+
+			<div class="card mb-3">
+				<p class="titleGuide mt-3">
+					<button type="button" class="btn btn-circle btn-lg mr-2 ml-2 ">
+						<i class="fas fa-info"></i>
+					</button>Guide de réponse</p>
+				<div class="card-body">
+
+					<h4>Ce pourcentage exclut les bâtiments, mais comprend les toitures végétalisées</h4>
+					<p>Cela inclut les fleurs sauvages indigènes, les fleurs ornementales visitées, les arbustes à fleurs ou les arbres à feuilles caduques. N'inclut pas les zones de pelouse tondue ni les espèces envahissantes ou nuisibles (voir https://npn.mnhn.fr/espece/listeEspeces/statut/metrolpole/I pour la liste des espèces introduites envahissantes).</p>
+					<br>
+					<p>Remarque: comptez toutes les plantes qui fournissent des fleurs, qu'elles soient ou non actuellement en fleurs</p>
+					<img width="530px" src="/images/1a.PNG" alt="1a.PNG">
+					<img width="530px" src="/images/1a.PNG" alt="1a.PNG">
+				</div>
+
+
+			</div>
+
+		</div>
+
+
+		<script>
+			var slider = document.getElementById("score_myRange");
+var output = document.getElementById("demo");
+
+var score = document.getElementById("diagnostic2_score");
+output.innerHTML = slider.value;
+score.value = slider.value / 10;
+
+function more() {
+slider.value += 10;
+output.innerHTML = slider.value;
+slider.oninput();
+}
+
+function less() {
+slider.value -= 10;
+output.innerHTML = slider.value
+slider.oninput();
+}
+
+slider.oninput = function () {
+output.innerHTML = this.value;
+if (this.value == 0) {
+score.value = 0;
+} else {
+if (this.value == 10) {
+score.value = 1;
+} else {
+if (this.value == 20) {
+score.value = 2;
+} else {
+if (this.value == 30) {
+score.value = 3;
+} else {
+if (this.value == 40) {
+score.value = 4;
+} else {
+if (this.value == 50) {
+score.value = 5;
+} else {
+if (this.value == 60) {
+score.value = 6;
+} else {
+if (this.value == 70) {
+score.value = 7;
+} else {
+if (this.value == 80) {
+score.value = 8;
+} else {
+if (this.value == 90) {
+score.value = 9;
+} else {
+score.value = 10;
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+
+}
+		</script>
+
+	{% endblock %}

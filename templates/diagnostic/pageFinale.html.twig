@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>
+		{% block title %}création d'un diagnostic
+		{% endblock %}
+	</title>
+	{% block stylesheets %}
+		{% form_theme formView 'bootstrap_4_layout.html.twig' %}
+
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/css/myStyle.css">
+
+		<link rel="stylesheet" href="/css/myStyle.css">
+
+		<link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
+	{% endblock %}
+
+	{# // <script src="{{ asset('js/vue.min.js') }}"></script> #}
+
+</head>
+
+
+{% include "shared/_navbar.html.twig" %}
+
+<div class="container" style="background: white;">
+
+
+	<div class="row justify-content-md-center ">
+
+		<div class="col col-md-8 col-sm-10 mt-5">
+
+			<h2 class="text-center text-uppercase">les résultats</h2>
+
+			<table class="table table-bordered border-primary mt-2">
+				<tr>
+					<td class="blackColor textWhite">
+						<h3 class="text-center text-uppercase">résultats de votre site</h3>
+					</td>
+					<td class="blackColor textWhite">
+						<h3 class="text-center text-uppercase">votre score</h3>
+					</td>
+					<td class="blackColor textWhite">
+						<h3 class="text-center text-uppercase">maximum</h3>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="greenColor textWhite">
+						<h5 class="text-center text-uppercase">partie 1
+						</h5>
+						<h5 class="text-center text-uppercase">zones d'alimentation
+						</h5>
+					</td>
+					<td>
+						<h3 class="text-center text-uppercase mt-3">{{ diagnostic.score1 }}</h3>
+					</td>
+
+					<td class="greenColor textWhite">
+						<h3 class="text-center text-uppercase mt-3">104</h3>
+					</td>
+				</tr>
+				<tr>
+					<td class="purpleColor textWhite">
+						<h5 class="text-center text-uppercase">partie 2
+						</h5>
+						<h5 class="text-center text-uppercase">habitat de nidification
+						</h5>
+					</td>
+					<td>
+						<h3 class="text-center text-uppercase mt-3">{{ diagnostic.score2 }}</h3>
+					</td>
+
+					<td class="purpleColor textWhite">
+						<h3 class="text-center text-uppercase mt-3">60</h3>
+					</td>
+				</tr>
+				<tr>
+					<td class="orangeColor textWhite">
+						<h5 class="text-center text-uppercase">partie 3
+						</h5>
+						<h5 class="text-center text-uppercase">utilisation de pesticide
+						</h5>
+					</td>
+					<td>
+						<h3 class="text-center text-uppercase mt-3">{{ diagnostic.score3 }}</h3>
+					</td>
+
+					<td class="orangeColor textWhite">
+						<h3 class="text-center text-uppercase mt-3">0</h3>
+					</td>
+				</tr>
+				<tr>
+					<td class="bleuColor textWhite">
+						<h5 class="text-center text-uppercase">partie 4
+						</h5>
+						<h5 class="text-center text-uppercase">informations, sensibilisations
+						</h5>
+					</td>
+					<td>
+						<h3 class="text-center text-uppercase mt-3">{{ diagnostic.score4 }}</h3>
+					</td>
+
+					<td class="bleuColor textWhite">
+						<h3 class="text-center text-uppercase mt-3">40</h3>
+					</td>
+				</tr>
+				<tr>
+
+					<td class="blackColor textWhite ">
+						<h5 class="text-center text-uppercase mt-3">total</h5>
+					</td>
+					<td>
+						<h3 class="text-center text-uppercase mt-3">{{ diagnostic.score1 + diagnostic.score2 + diagnostic.score3 + diagnostic.score4 }}</h3>
+					</td>
+
+					<td class="blackColor textWhite">
+						<h3 class="text-center text-uppercase mt-3">204</h3>
+					</td>
+
+				</tr>
+
+			</table>
+
+		</div>
+
+
+	</div>
+
+	<div id="text" class="row justify-content-md-center ">
+		<div class="col col-md-9 col-sm-10 mt-5">
+
+			<div class="card  mb-3">
+				<div class="card-header text-white bg-dark">
+					<h3 class="titleInfos">Actions pour améliorer votre site
+					</h3>
+				</div>
+				<div class="card-body">
+
+					<p class="card-text paragrapheInfos">Les scores de chaque PARTIE doivent être utilisés pour identifier
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								les problèmes de ressources et hiérarchiser les prochaines étapes.
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								Par exemple, si le score de « l’habitat de nidification » est faible, les
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								actions qui augmentent ce score doivent être priorisées. Idéalement,
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								les gestionnaires de chaque site devraient essayer d’obtenir un
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								score global d’au moins 144 points, avec des améliorations continues
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								du site (et du score) chaque année.</p>
+				</div>
+				<div class="text-center">
+					{# <button type="button" onclick="window.print()" style="background: #6AAF3C; color: white" class="btn btnSuivant text-capitalize ml-5 mr-5 mb-3">Télécharger le PDF des actions</button> #}
+					<button type="button" href="/fichier/Diag_Pollinisateurs_EV_pages_conseils_ressources.pdf" style="background: #6AAF3C; color: white" class="btn btnSuivant text-capitalize ml-5 mr-5 mb-3">Télécharger le PDF des actions</button>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+
+
+	{{ form_start(formView) }}
+
+	{{ form_errors(formView) }}
+
+	{{ form_row(formView.name) }}
+	{{ form_row(formView.delimitation) }}
+	{{ form_row(formView.proprietaire) }}
+	{{ form_row(formView.adresse) }}
+	{{ form_row(formView.objectif) }}
+	{{ form_row(formView.mail) }}
+	{{ form_row(formView.etape) }}
+	{{ form_row(formView.score1) }}
+	{{ form_row(formView.score2) }}
+	{{ form_row(formView.score3) }}
+	{{ form_row(formView.score4) }}
+	{{ form_end(formView) }}
+
+	<div id="buttonAction" class="row justify-content-md-center ">
+
+		<div class="col-9 col-md-9 col-sm-10 mt-5 mb-3">
+			<a href="https://www.arthropologia.org/" class="btn btnSuivant text-capitalize mb-3" style="background: #000; color: #fff">
+				<i class="fas fa-home"></i>
+				Retour sur Arthropologia.org</a>
+			<a href="{{ path('diagnostic_create') }}" class="btn btnSuivant text-capitalize ml-2 mb-3">
+				<i class="fas fa-undo-alt"></i>
+				Recommencer le diagnostic</a>
+		</div>
+
+	</div>
+
+</div></body></html>

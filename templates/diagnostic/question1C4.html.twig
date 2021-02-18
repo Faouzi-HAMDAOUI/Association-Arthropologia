@@ -1,0 +1,132 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formView 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Lancement d'un diagnostic
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="row">
+		<div class="col-md-7 col-sm-12">
+			{% include "shared/_progress.html.twig" with {
+      'width1': 45,
+      'width2': 0,
+      'width3': 0,
+			'width4': 0
+    }  %}
+
+			{% include "shared/_guidMobile.html.twig" with {
+
+  'sousParagraphe1': 'Exemples d’espaces verts diversifiés, comportant des nombreuses ressources alimentaires',
+      'sousParagraphe2': ' ',
+			'sousParagraphe3': ' '
+
+} 
+%}
+
+			{% include "shared/_question.html.twig" with {
+      'partie': '1',
+      'sousPartie': 'c',
+      'titre': 'Ressources alimentaires diversifiées sur le site',
+			'numQuestion': '4',
+			'nbreQuestions': '8',
+			'question': 'Les plantes indigènes sont-elles utilisées comme couvre-sol ?',
+			'infosQuestion': 'Sous les arbres et dans les zones boisées, plutôt que les copeaux de bois, la pouzzolane, le gazon ou les plantes non indigènes (ex. de plantes indigènes : ficaire, lierre, pervenches, violettes…)',
+    } 
+		 %}
+
+			<div class="list-group">
+
+				<button id="rep1" onclick="clickRep1()" class="list-group-item list-group-item-action mb-2" aria-current="true">
+					<h3 class="mb-1 mt-4">Non</h3>
+					<h4 class="text-right">0 pt</h4>
+				</button>
+
+				<button id="rep2" onclick="clickRep2()" class="list-group-item list-group-item-action mb-2" aria-current="true">
+					<h3 class="mb-1 mt-4">Oui</h3>
+					<h4 class="text-right">5 pts</h4>
+				</button>
+
+			</div>
+
+			{{ form_start(formView) }}
+
+			{{ form_errors(formView) }}
+
+			{{ form_row(formView.name) }}
+			{{ form_row(formView.delimitation) }}
+			{{ form_row(formView.proprietaire) }}
+			{{ form_row(formView.adresse) }}
+			{{ form_row(formView.objectif) }}
+			{{ form_row(formView.mail) }}
+			{{ form_row(formView.etape) }}
+			{{ form_row(formView.score) }}
+			{{ form_row(formView.score1) }}
+			{{ form_row(formView.score2) }}
+			{{ form_row(formView.score3) }}
+			{{ form_row(formView.score4) }}
+			<br>
+			<div class="row mt-4">
+				<div class="col col-md-5 col-sm-4">
+					<a class="btn btnRetour text-capitalize" href="{{ path('diagnostic_question1C3', {'id': diagnostic.id } ) }}">
+						<h3>
+							<i class="fas fa-angle-left"></i>
+							Retour
+						</h3>
+
+					</a>
+				</div>
+				<div class="col col-md-7 col-sm-4 text-right">
+					<button type="submit" class="btn btnSuivant ml-3 text-capitalize">
+
+						<h3>
+							Suivant
+							<i class="fas fa-angle-right"></i>
+						</h3>
+					</button>
+				</div>
+
+
+			</div>
+
+			{{ form_end(formView) }}
+
+		</div>
+
+
+		{% include "shared/_guide.html.twig" with {
+	'height': '45',
+      'sousParagraphe1': 'Exemples d’espaces verts diversifiés, comportant des nombreuses ressources alimentaires',
+      'sousParagraphe2': ' ',
+			'sousParagraphe3': ' '
+    }  %}
+
+
+		<script>
+			var rep1 = document.getElementById("rep1");
+var rep2 = document.getElementById("rep2");
+
+var score = document.getElementById("diagnostic2_score");
+score.value = 0;
+
+function clickRep1() {
+score.value = 0;
+rep1.style.background = '#168944';
+rep1.style.color = 'white';
+rep2.style.background = 'white';
+rep2.style.color = 'black';
+}
+
+function clickRep2() {
+score.value = 5;
+rep2.style.background = '#168944';
+rep2.style.color = 'white';
+rep1.style.background = 'white';
+rep1.style.color = 'black';
+
+}
+		</script>
+
+	{% endblock %}
