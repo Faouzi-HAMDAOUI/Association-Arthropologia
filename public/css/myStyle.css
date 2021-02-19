@@ -1,3 +1,5 @@
+/* ########################################## Mes couleurs utlisés ##########################################  */
+
 .yellowColor {
     background-color: #FFDD00;
 }
@@ -26,12 +28,67 @@
     color: #FFFFFF;
 }
 
+
+/* pour les parties 1, 2, 3, 4  */
+
 .partie {
     font-family: Fira Sans Condensed;
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
     line-height: 26px;
+    color: #000000
+}
+
+
+/* ################################### pour les questions ################################################# */
+
+.numPartie {
+    font-family: Fira Sans Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.titlePartie {
+    font-family: Fira Sans Condensed;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    font-style: italic;
+    color: #000000;
+}
+
+.titlePartie2 {
+    font-family: Fira Sans Condensed;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.paragraphePartie {
+    font-family: Fira Sans Condensed;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000
+}
+
+.sousParagraphePartie {
+    font-family: Fira Sans Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
     color: #000000
 }
 
@@ -122,6 +179,9 @@
     cursor: pointer;
 }
 
+
+/* ############################################### la partie guide ################################################## */
+
 .titleGuide {
     font-family: Fira Sans Condensed;
     font-style: normal;
@@ -172,6 +232,9 @@
     display: none;
 }
 
+
+/* la progress bar  */
+
 .titleProgressBar {
     font-family: Fira Sans Condensed;
     font-style: normal;
@@ -186,6 +249,9 @@
 .ml-6 {
     margin-left: 100px;
 }
+
+
+/* ########################################## images background des pages ##########################################  */
 
 .backgroungHome {
     background-image: url('/images/fond_accueil.jpg');
@@ -223,71 +289,8 @@
     background-attachment: fixed;
 }
 
-.numPartie {
-    font-family: Fira Sans Condensed;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 38px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #000000;
-}
 
-.titlePartie {
-    font-family: Fira Sans Condensed;
-    font-weight: 300;
-    font-size: 32px;
-    line-height: 38px;
-    text-align: center;
-    font-style: italic;
-    color: #000000;
-}
-
-.titlePartie2 {
-    font-family: Fira Sans Condensed;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 32px;
-    line-height: 38px;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.paragraphePartie {
-    font-family: Fira Sans Condensed;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 19px;
-    color: #000000
-}
-
-.sousParagraphePartie {
-    font-family: Fira Sans Condensed;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    color: #000000
-}
-
-.formButton {
-    width: 150px;
-    height: 64px;
-    left: 672px;
-    top: 658px;
-    background: #FFDD00;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
-}
-
-.buttonPrint {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    background: #6AAF3C;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
-}
+/* ######################################## les contenue text ##################################################### */
 
 .titleInfos {
     font-family: Fira Sans Condensed;
@@ -316,6 +319,26 @@
     font-size: 20px;
     line-height: 24px;
     color: #000000;
+}
+
+
+/* #################################### mes buttons ####################################################### */
+
+.formButton {
+    width: 150px;
+    height: 64px;
+    left: 672px;
+    top: 658px;
+    background: #FFDD00;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.buttonPrint {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background: #6AAF3C;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
 }
 
 .btn-circle.btn-lg {
@@ -371,6 +394,9 @@
     background: #f5f4ef;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
 }
+
+
+/* ################################### pour le Mobile ########################################################### */
 
 @media only screen and (min-width: 780px) {
     .marginBody {

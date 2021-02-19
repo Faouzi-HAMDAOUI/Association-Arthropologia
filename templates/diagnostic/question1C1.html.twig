@@ -150,7 +150,7 @@ output.innerHTML = slider.value / 10;
 score.value = slider.value / 10;
 
 function more() {
-slider.value += 10;
+	slider.stepUp(1);
 output.innerHTML = slider.value / 10
 slider.oninput();
 }

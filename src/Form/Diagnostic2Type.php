@@ -21,7 +21,7 @@ class Diagnostic2Type extends AbstractType
             ->add('objectif', HiddenType::class)
             ->add('mail', HiddenType::class)
             ->add('etape', HiddenType::class)
-            ->add('score', HiddenType::class,  [
+            ->add('score', TextType::class,  [
                 'attr' => [
                     'id' => 'score'
                 ]
