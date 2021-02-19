@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Admin
+{% endblock %}
+
+{% block body %}
+	<h1 class="mt-5">la liste des diagnostics</h1>
+
+	<div class="row">
+		<div class="col">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Nom de site</th>
+						<th scope="col">Délimitation</th>
+						<th scope="col">Propriétaire(s)</th>
+						<th scope="col">Adresse</th>
+						<th scope="col">Utilisation/Objectif</th>
+						<th scope="col">E-mail</th>
+						<th scope="col">score 1</th>
+						<th scope="col">score 2</th>
+						<th scope="col">score 3</th>
+						<th scope="col">score 4</th>
+						<th scope="col">score Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for diagnostic in diagnostics | sort | reverse %}
+						<tr class="table-light">
+							<th scope="row">{{ diagnostic.name }}</th>
+							<td>{{ diagnostic.delimitation }}</td>
+							<td>{{ diagnostic.proprietaire }}</td>
+							<td>{{ diagnostic.adresse }}</td>
+							<td>{{ diagnostic.objectif }}</td>
+							<td>{{ diagnostic.mail }}</td>
+							<td>{{ diagnostic.score1 }}</td>
+							<td>{{ diagnostic.score2 }}</td>
+							<td>{{ diagnostic.score3 }}</td>
+							<td>{{ diagnostic.score4 }}</td>
+							<td>{{ diagnostic.score }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

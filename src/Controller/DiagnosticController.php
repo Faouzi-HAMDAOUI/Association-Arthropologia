@@ -9,13 +9,10 @@ use App\Form\ScoreType;
 use App\Repository\DiagnosticRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DomCrawler\Form;
-use Symfony\Component\Form\Extension\Core\Type\RangeType;
-use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Form\Test\FormBuilderInterface;
+
 
 class DiagnosticController extends AbstractController
 
@@ -1150,9 +1147,11 @@ class DiagnosticController extends AbstractController
 
         $score = $diagnostic->getScore4() + $diagnostic->getScore();
 
+        $score1 = $diagnostic->getScore1() + $diagnostic->getScore2() + $diagnostic->getScore3() + $diagnostic->getScore4() + $diagnostic->getScore();
+
         if ($form->isSubmitted()) {
             $diagnostic->setScore4($score);
-            $diagnostic->setScore(0);
+            $diagnostic->setScore($score1);
             $em->flush();
             return $this->redirectToRoute('diagnostic_pageFinale', [
                 'id' => $diagnostic->getId(),

@@ -140,6 +140,38 @@
     color: #000000;
 }
 
+.imageGuide {
+    width: 500px;
+    height: 200px;
+    margin-top: 10px;
+}
+
+.imageGuide2 {
+    display: none;
+}
+
+.imageGuideImg {
+    width: 250px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.imageGuideImg2 {
+    display: none;
+}
+
+.imageGuideMob {
+    width: 430px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.imageGuideMob2 {
+    display: none;
+}
+
 .titleProgressBar {
     font-family: Fira Sans Condensed;
     font-style: normal;
@@ -156,37 +188,37 @@
 }
 
 .backgroungHome {
-    background-image: url('/images/home.jpg');
+    background-image: url('/images/fond_accueil.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .backgroungCreate {
-    background-image: url('/images/home.jpg');
+    background-image: url('/images/fond_formulaire.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .backgroungpartie1 {
-    background-image: url('/images/home.jpg');
+    background-image: url('/images/fond_part1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .backgroungpartie2 {
-    background-image: url('/images/home.jpg');
+    background-image: url('/images/fond_part2.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .backgroungpartie3 {
-    background-image: url('/images/home.jpg');
+    background-image: url('/images/fond_part3.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .backgroungpartie4 {
-    background-image: url('/images/home.jpg');
+    background-image: url('/images/fond_part4.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }

@@ -1,8 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand ml-5" href="#">
-		<span style="color: #000">Arth</span><span style="color: #168944">Ropo</span><span style="color: #FFDD00;">Logia</span>
+		<img width="40px" class="mt-1" src="/images/logo_arthropologia.png" alt="">
+		<img width="130px" src="/images/logo_diag_poll.png" alt="">
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
+
+	<div class="collapse navbar-collapse" id="navbarColor03">
+		<ul class="navbar-nav mr-auto"></ul>
+
+		{% if app.user %}
+			<a href="{{ path('security_logout') }}" class="my-2 my-sm-0" type="submit">
+				<i class="fas fa-sign-out-alt"></i>
+			</a>
+
+		{% else %}
+
+			<a href="{{ path('security_login') }}" class="my-2 mx-3">
+				<i class="fas fa-user-lock"></i>
+			</a>
+			<a href="{{ path('security_register') }}" class="my-2 my-sm-0">
+				<i class="fas fa-user-plus"></i>
+			</a>
+
+		{% endif %}
+
+
+	</div>
 </nav>

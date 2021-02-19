@@ -18,54 +18,24 @@
     }  %}
 			{# --------------------------------guide mobile -------------------------------------------------- #}
 
-			<div class="row" id="guidMobile">
-				<div
-					class="col-11 col-md-11 col-sm-11 ">
-
-
-					<!-- Button trigger modal -->
-
-					<div class="text-right">
-						<button data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" class="btn btn-circle btn-lg">
-							<i class="fas fa-info"></i>
-						</button>
-					</div>
-
 
 					<!-- Modal -->
-					<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-scrollable">
-							<div class="modal-content">
-								<div class="modal-header">
-									<p class="titleGuide">
-										<button type="button" class="btn btn-circle btn-lg mr-2">
-											<i class="fas fa-info"></i>
-										</button>Guide de réponse</p>
-									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-										<i class="fas fa-window-close"></i>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="card-body">
-										<h5 class="card-title">Special title treatment</h5>
-										<h4>Ce pourcentage exclut les bâtiments, mais comprend les toitures végétalisées</h4>
-										<p>Cela inclut les fleurs sauvages indigènes, les fleurs ornementales visitées, les arbustes à fleurs ou les arbres à feuilles caduques. N'inclut pas les zones de pelouse tondue ni les espèces envahissantes ou nuisibles (voir https://npn.mnhn.fr/espece/listeEspeces/statut/metrolpole/I pour la liste des espèces introduites envahissantes).</p>
-										<br>
-										<p>Remarque: comptez toutes les plantes qui fournissent des fleurs, qu'elles soient ou non actuellement en fleurs</p>
-									</div>
-									<img width="405px" src="/images/1a.PNG" alt="1a.PNG">
-									<img width="405px" src="/images/1a.PNG" alt="1a.PNG">
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-				</div>
-			</div>
+					{% include "shared/_guidMobile.html.twig" with {
+	'height': '52',
+      'sousParagraphe1': 'Ce pourcentage exclut les bâtiments, mais comprend les toitures végétalisées',
+      'sousParagraphe2': 'Cela inclut les fleurs sauvages indigènes, les fleurs ornementales visitées, les arbustes à fleurs ou les arbres à feuilles caduques. N\'inclut pas les zones de pelouse tondue ni les espèces envahissantes ou nuisibles (voir https://npn.mnhn.fr/espece/listeEspeces/statut/metrolpole/I pour la liste des espèces introduites envahissantes).',
+			'sousParagraphe3': 'Remarque: comptez toutes les plantes qui fournissent des fleurs, qu\'elles soient ou non actuellement en fleurs',
+			'img1': '/images/guide/1A/1A_img1.JPG',
+			'img2': '/images/guide/1A/1A_img2.JPG',
+			'img3': '/images/guide/1A/1A_img3.jpg',
+			'img4': '',
+			'img5': '',
+			'img6': '',
+			'img7': '',
+			'img8': '',
+			'img9': '',
+			'img10': ''
+    }  %}
 
 
 			{# ---------------------------------------------fin de guide mobile------------------------------- #}
@@ -158,29 +128,22 @@
 
 		</div>
 
-		<div class="col-md-5 col-sm-8 mt-2" id="guid">
-
-			<div class="card mb-3">
-				<p class="titleGuide mt-3">
-					<button type="button" class="btn btn-circle btn-lg mr-2 ml-2 ">
-						<i class="fas fa-info"></i>
-					</button>Guide de réponse</p>
-				<div class="card-body">
-
-					<h4>Ce pourcentage exclut les bâtiments, mais comprend les toitures végétalisées</h4>
-					<p>Cela inclut les fleurs sauvages indigènes, les fleurs ornementales visitées, les arbustes à fleurs ou les arbres à feuilles caduques. N'inclut pas les zones de pelouse tondue ni les espèces envahissantes ou nuisibles (voir https://npn.mnhn.fr/espece/listeEspeces/statut/metrolpole/I pour la liste des espèces introduites envahissantes).</p>
-					<br>
-					<p>Remarque: comptez toutes les plantes qui fournissent des fleurs, qu'elles soient ou non actuellement en fleurs</p>
-					<img width="530px" src="/images/1a.PNG" alt="1a.PNG">
-					<img width="530px" src="/images/1a.PNG" alt="1a.PNG">
-				</div>
-
-
-			</div>
-
-		</div>
-
-
+	{% include "shared/_guide.html.twig" with {
+	'height': '60',
+      'sousParagraphe1': 'Ce pourcentage exclut les bâtiments, mais comprend les toitures végétalisées',
+      'sousParagraphe2': 'Cela inclut les fleurs sauvages indigènes, les fleurs ornementales visitées, les arbustes à fleurs ou les arbres à feuilles caduques. N\'inclut pas les zones de pelouse tondue ni les espèces envahissantes ou nuisibles (voir https://npn.mnhn.fr/espece/listeEspeces/statut/metrolpole/I pour la liste des espèces introduites envahissantes).',
+			'sousParagraphe3': 'Remarque: comptez toutes les plantes qui fournissent des fleurs, qu\'elles soient ou non actuellement en fleurs',
+			'img1': '/images/guide/1A/1A_img1.JPG',
+			'img2': '/images/guide/1A/1A_img2.JPG',
+			'img3': '/images/guide/1A/1A_img3.jpg',
+			'img4': '',
+			'img5': '',
+			'img6': '',
+			'img7': '',
+			'img8': '',
+			'img9': '',
+			'img10': ''
+    }  %}
 		<script>
 			var slider = document.getElementById("score_myRange");
 var output = document.getElementById("demo");
