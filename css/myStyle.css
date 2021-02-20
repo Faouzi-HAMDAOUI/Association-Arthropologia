@@ -372,6 +372,9 @@
         margin-right: 50px;
         margin-top: 20px;
     }
+    .cartePageFinale {
+        width: 60%;
+    }
     .titlePartie {
         font-family: Fira Sans Condensed;
         font-style: italic;
@@ -441,6 +444,9 @@
     .marginCarte {
         margin-left: 15px;
         margin-right: 15px;
+    }
+    .cartePageFinale {
+        width: 100%;
     }
     .titlePartie {
         font-family: Fira Sans Condensed;
