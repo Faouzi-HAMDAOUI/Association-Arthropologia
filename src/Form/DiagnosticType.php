@@ -50,7 +50,7 @@ class DiagnosticType extends AbstractType
             ->add('mail', TextType::class, [
                 'label' => 'E-mail (facultatif)',
                 'attr' => [
-                    'placeholder' => 'exemlpe@domain.fr...',
+                    'placeholder' => 'exemple@domain.fr...',
                     'class' => 'form-control'
                 ]
             ])

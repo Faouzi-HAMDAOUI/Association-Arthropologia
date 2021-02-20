@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>
-			{% block title %}création d'un diagnostic
-			{% endblock %}
-		</title>
-		{% block stylesheets %}
-			{% form_theme formView 'bootstrap_4_layout.html.twig' %}
-
-			<link rel="preconnect" href="https://fonts.gstatic.com">
-			<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-			<link rel="stylesheet" href="/css/myStyle.css">
-
-			<link rel="stylesheet" href="/css/myStyle.css">
-
-			<link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		{% block title %}création d'un nouveau diagnostic
 		{% endblock %}
+	</title>
+	{% block stylesheets %}
+		{% form_theme formView 'bootstrap_4_layout.html.twig' %}
 
-		{# // <script src="{{ asset('js/vue.min.js') }}"></script> #}
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/css/myStyle.css">
 
-	</head>
+		<link rel="stylesheet" href="/css/myStyle.css">
+
+		<link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	{% endblock %}
+
+	{# // <script src="{{ asset('js/vue.min.js') }}"></script> #}
+
+</head>
 	<body class="backgroungCreate">
 
 		{% include "shared/_navbar.html.twig" %}
@@ -35,6 +35,7 @@
 						<h1>INFORMATIONS GENERALES SUR LE SITE</h1>
 						<p style="font-family: 'Fira Sans Condensed' , sans-serif;">Avant de commencer le diagnostic, veuillez renseigner des informations générales sur le site étudié. Ces données permetteront de bénéficier à la recherche sur les insectes pollinisateurs et d’améliorer l’efficacité du diagnostic.</p>
 					</div>
+					</div>
 
 					{{ form_start(formView) }}
 
@@ -42,9 +43,7 @@
 
 					<div class="row justify-content-md-center">
 
-						<div class="col-md-auto">
-							<div class="mb-3" style="width: 30rem">
-
+						<div class="col col-md-8">
 
 								<div class="form-group ml-3 mr-3 mt-4">
 									{{ form_row(formView.name) }}
@@ -80,10 +79,10 @@
 							</div>
 						</div>
 
-					</div>
+				
 
 					<div class="row justify-content-md-center mt-5 ">
-						<div class="col col-md-6 col-sm-4 mb-5">
+						<div class="col col-md-4 col-sm-4 mb-5">
 							<a class="btn btnRetour  text-capitalize" href="{{ path('homepage') }}">
 								<h3>
 									<i class="fas fa-angle-left"></i>
@@ -92,7 +91,7 @@
 
 							</a>
 						</div>
-						<div class="col col-md-6 col-sm-4 text-right mb-5">
+						<div class="col col-md-4 col-sm-4 text-right mb-5">
 							<button type="submit" class="btn btnSuivant  ml-3 text-capitalize">
 
 								<h3>
@@ -107,7 +106,5 @@
 
 					{% endblock %}
 				</div>
-			</body>
-		</body>
-	</body>
-</html></body></html>
+			
+</body></html>
