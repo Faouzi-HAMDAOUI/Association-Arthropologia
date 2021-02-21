@@ -43,7 +43,7 @@ class Diagnostic
     private $objectif;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $mail;
 
@@ -76,6 +76,11 @@ class Diagnostic
      * @ORM\Column(type="integer", nullable=true)
      */
     private $score;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date;
 
     public function getId(): ?int
     {
@@ -224,6 +229,18 @@ class Diagnostic
     public function setScore(?int $score): self
     {
         $this->score = $score;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

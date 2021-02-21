@@ -51,10 +51,12 @@ class DiagnosticType extends AbstractType
                 'label' => 'E-mail (facultatif)',
                 'attr' => [
                     'placeholder' => 'exemple@domain.fr...',
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'required' => false
                 ]
             ])
             ->add('etape', HiddenType::class)
+            ->add('date', HiddenType::class)
             ->add('score1', HiddenType::class)
             ->add('score2', HiddenType::class)
             ->add('score3', HiddenType::class)

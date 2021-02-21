@@ -2,17 +2,18 @@
 
 namespace App\Controller;
 
-use App\Entity\Diagnostic;
-use App\Form\Diagnostic2Type;
-use App\Form\DiagnosticType;
+use DateTime;
 use App\Form\ScoreType;
+use App\Entity\Diagnostic;
+use App\Form\DiagnosticType;
+use App\Form\Diagnostic2Type;
 use App\Repository\DiagnosticRepository;
 use Doctrine\ORM\EntityManagerInterface;
+
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 
 class DiagnosticController extends AbstractController
 
@@ -40,6 +41,7 @@ class DiagnosticController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
+            $diagnostic->setDate(new \DateTime('now'));
             $diagnostic->setEtape(1);
             $diagnostic->setScore(0);
             $diagnostic->setScore1(0);
@@ -1172,30 +1174,13 @@ class DiagnosticController extends AbstractController
     /**
      * @Route("diagnostic/{id}/pageFinale", name="diagnostic_pageFinale")
      */
-    public function pageFinale($id, DiagnosticRepository $diagnosticRepository, Request $request, EntityManagerInterface $em)
+    public function pageFinale($id, DiagnosticRepository $diagnosticRepository)
     {
-        $form2 = $this->createForm(ScoreType::class);
+        
 
-        $diagnostic =  $diagnosticRepository->find($id);
-        $form = $this->createForm(Diagnostic2Type::class, $diagnostic);
-        $form->handleRequest($request);
-
-        $score = $diagnostic->getScore4() + $diagnostic->getScore();
-
-        if ($form->isSubmitted()) {
-            $diagnostic->setScore4($score);
-            $diagnostic->setScore(0);
-            $em->flush();
-            return $this->redirectToRoute('diagnostic_question4A2', [
-                'id' => $diagnostic->getId(),
-            ]);
-        }
-        $formView = $form->createView();
-        $formScore = $form2->createView();
+        $diagnostic =  $diagnosticRepository->find($id); 
         return $this->render('diagnostic/pageFinale.html.twig', [
-            'diagnostic' => $diagnostic,
-            'formView' => $formView,
-            'formScore' => $formScore
+            'diagnostic' => $diagnostic
         ]);
     }
 }

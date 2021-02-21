@@ -68,10 +68,14 @@
 
 
 								<div class="form-group ml-3 mr-3">
-									{{ form_row(formView.mail) }}
+									{{ form_row(formView.mail, {
+					'attr': {
+						'required': false,
+					}
+				}) }}
 								</div>
 
-								{{ form_row(formView.etape) }}
+								{{ form_row(formView.etape) }} {{ form_row(formView.date) }}
 								{{ form_row(formView.score1) }}
 								{{ form_row(formView.score2) }}
 								{{ form_row(formView.score3) }}
